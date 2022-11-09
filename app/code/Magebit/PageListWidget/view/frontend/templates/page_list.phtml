@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var $block \Magebit\PageListWidget\Block\Widget\PageList
+ */
+
+?>
+<?php $pages = $block->getPages(); ?>
+
+<?php if (!$pages): ?>
+    <?php return ?>
+<?php endif; ?>
+
+<?php if ($title = $block->getTitle()): ?>
+    <h3><?= $title; ?></h3>
+<?php endif; ?>
+<ul>
+    <?php foreach ($pages as $page): ?>
+        <li>
+            <a href="<?= $block->getUrl($page->getIdentifier()) ?>"><?= $page->getTitle() ?></a>
+        </li>
+    <?php endforeach; ?>
+</ul>
